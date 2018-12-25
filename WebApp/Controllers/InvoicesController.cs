@@ -1,4 +1,5 @@
-﻿using Services;
+﻿using DataModels.Sales;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,5 +41,26 @@ namespace WebApp.Controllers
             ViewBag.items = items;
             return View();
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(InvoiceMaster invoiceMaster)
+        {
+            try
+            {
+                var result = await this.invoicesService.Add(invoiceMaster);
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception ex)
+            {
+                var items = await this.itemsService.Get();
+                ViewBag.items = items;
+
+                return View(invoiceMaster);
+            }
+ 
+
+        }
+        
     }
 }

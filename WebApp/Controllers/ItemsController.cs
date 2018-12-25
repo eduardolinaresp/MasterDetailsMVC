@@ -1,4 +1,5 @@
-﻿using Services;
+﻿using DataModels.Stocks;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,24 @@ namespace WebApp.Controllers
         {
             var items = await this.itemsService.Get();
             return View(items);
+        }
+
+        public async Task<ActionResult> Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(Item item)
+        {
+            try
+            {
+                var result = await this.itemsService.Add(item);
+                return RedirectToAction("Index");
+            }catch(Exception ex)
+            {
+                return View(item);
+            }
         }
 
 

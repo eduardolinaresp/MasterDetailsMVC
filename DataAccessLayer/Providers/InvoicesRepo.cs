@@ -23,14 +23,21 @@ namespace DataAccessLayer.Providers
         public async Task<ICollection<InvoiceMaster>> Get()
         {
             var result = await (from inv in this.dataContext.Invoices
+                                
                                 orderby inv.ID descending
-                                select inv).ToListAsync();
+                                select inv).Include(i => i.InvoiceChildren).ToListAsync();
+            
             return result;
         }
 
         public async Task<InvoiceMaster> Get(int id)
         {
-            return await this.dataContext.Invoices.FindAsync(id);
+            var result = await this.dataContext.Invoices
+                                .Where(i => i.ID == id)
+                                .Include(i => i.InvoiceChildren.Select(p => p.Item))
+                                .FirstOrDefaultAsync();
+            
+            return result;
         }
 
         public Task<int> Update(InvoiceMaster item)

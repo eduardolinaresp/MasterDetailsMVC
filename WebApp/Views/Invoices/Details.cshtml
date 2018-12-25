@@ -56,7 +56,7 @@
                         @Html.DisplayFor(modelItem => item.Item.Price)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Quantity + item.Item.Unit)
+                        @String.Concat(item.Quantity + item.Item.Unit)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Cost)

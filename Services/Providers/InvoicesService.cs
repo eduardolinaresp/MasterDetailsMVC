@@ -17,9 +17,9 @@ namespace Services.Providers
             this.invoicesRepo = invoicesRepo;
         }
 
-        public Task<int> Add(InvoiceMaster invoice)
+        public async Task<int> Add(InvoiceMaster invoice)
         {
-            throw new NotImplementedException();
+            return await this.invoicesRepo.Add(invoice);
         }
 
         public async Task<ICollection<InvoiceMaster>> Get()
@@ -27,9 +27,9 @@ namespace Services.Providers
             return await this.invoicesRepo.Get();
         }
 
-        public Task<InvoiceMaster> Get(int id)
+        public async Task<InvoiceMaster> Get(int id)
         {
-            throw new NotImplementedException();
+            return await this.invoicesRepo.Get(id);
         }
 
         public Task<int> Update(InvoiceMaster invoice)
