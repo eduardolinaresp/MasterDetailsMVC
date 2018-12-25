@@ -12,5 +12,6 @@ namespace DataAccessLayer.Providers
         }
         public DbSet<Item> Items { get; set; }
         public DbSet<InvoiceMaster> Invoices { get; set; }
+        //public DbSet<InvoiceChild> InvoiceChildren { get; set; }
     }
 }

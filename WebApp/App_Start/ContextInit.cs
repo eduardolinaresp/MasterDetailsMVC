@@ -17,6 +17,7 @@ namespace WebApp.App_Start
                 return _servicesFactory;
             }
         }
+
         public static void Init()
         {
             string connString = "Data Source=.;Initial Catalog=NadeemInvoiceDemo;Integrated Security=True;";
