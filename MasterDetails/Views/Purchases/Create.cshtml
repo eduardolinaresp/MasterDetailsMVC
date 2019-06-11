@@ -1,0 +1,158 @@
+﻿
+@model  MasterDetails.Models.Purchase
+
+@using (Html.BeginForm())
+{
+
+  @Html.AntiForgeryToken()
+
+  <div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+
+        <div class="panel-heading">
+          <div class="panel-title">Purchase Header</div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="row">
+
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                @Html.LabelFor(m => m.CustomerName, "Customer Name", new { @Class = "control-label col-md-4" });
+                <div class="col-md-4">
+                  @Html.TextBoxFor(m => m.CustomerName, null, new { @class = "form-control" })
+                </div>
+              </div>
+
+              <div class="form-group row">
+                @Html.LabelFor(m => m.CustomerContactNo, "Contact No", new { @Class = "control-label col-md-4" });
+                <div class="col-md-4">
+                  @Html.TextBoxFor(m => m.CustomerContactNo, null, new { @class = "form-control" })
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                @Html.LabelFor(m => m.PurchaseDate, "PurchaseDate", new { @Class = "control-label col-md-4" });
+                <div class="col-md-4">
+                  @Html.TextBoxFor(m => m.PurchaseDate, null, new { @class = "form-control" })
+                </div>
+              </div>
+
+              <div class="form-group row">
+                @Html.LabelFor(m => m.Description, "Description", new { @Class = "control-label col-md-4" });
+                <div class="col-md-4">
+                  @Html.TextAreaFor(m => m.Description, new { @class = "form-control", row = 3 })
+                </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+
+        <div class="panel-heading">
+          <div class="panel-title">Purchase Details</div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="form-group row">
+            @Html.Label("ItemName", "Item Name", new { @Class = "control-label col-md-4" });
+            <div class="col-md-4">
+              @Html.TextBox("ItemName", null, new { @class = "form-control" })
+            </div>
+          </div>
+
+          <div class="form-group row">
+            @Html.Label("ItemQty", "Item Qty", new { @Class = "control-label col-md-4" });
+            <div class="col-md-4">
+              @Html.TextBox("ItemQty", null, new { @class = "form-control" })
+            </div>
+          </div>
+
+          <div class="form-group row">
+            @Html.Label("ItemPrice", "Item Price", new { @Class = "control-label col-md-4" });
+            <div class="col-md-4">
+              @Html.TextBox("ItemPrice", null, new { @class = "form-control" })
+            </div>
+          </div>
+
+          <div class="col-md-4 col-md-offset-4">
+            <input type="button" name="name" id="AddButton" value="Add" class="btn btn-info" />
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+
+        <div class="panel-heading">
+          <div class="panel-title">Added Details items</div>
+        </div>
+
+        <div class="panel-body">
+
+          <table class=" table-bordered  table-hover table-striped table-responsive">
+            <thead>
+              <tr>
+                <td>Sl</td>
+                <td>Item Name</td>
+                <td>Qty</td>
+                <td>Price</td>
+              </tr>
+            </thead>
+
+            <tbody id="PurchaseDetailsTable"></tbody>
+
+
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4 col-md-offset-4">
+
+    <input type="submit" name="name" value="save" class="btn btn-success" />
+
+  </div>
+
+
+}
+
+@section scripts
+{
+
+
+  <script src="~/Scripts/ProyectScripts/Purchase/PurchaseCreate.js"></script>
+
+}
