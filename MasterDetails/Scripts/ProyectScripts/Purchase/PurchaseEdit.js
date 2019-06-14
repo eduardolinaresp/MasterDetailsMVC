@@ -1,11 +1,16 @@
 ﻿
 
-$("#AddButton").click(function () {
+$(document).ready(function () {
 
-    createdRowPurchase();
+    $("#AddButton").click(function () {
 
+        createdRowPurchase();
+
+    });
+
+
+    buscar(1);
 });
-
 
 function createdRowPurchase() {
 
@@ -62,4 +67,12 @@ function getSeleltedItem() {
 
     return item;
 }
+
+
+function buscar(page) {
+    
+    window.location.href ="www.google.com"
+
+  
+};
 

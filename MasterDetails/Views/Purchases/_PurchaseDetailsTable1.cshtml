@@ -1,0 +1,32 @@
+﻿
+@using MasterDetails.Models;
+
+@{
+    ViewBag.Title = "Tabla";
+
+}
+
+<table class=" table-bordered  table-hover table-striped table-responsive">
+    <thead>
+        <tr>
+            <td>Sl</td>
+            <td>Item Name</td>
+            <td>Qty</td>
+            <td>Price</td>
+            <td>Accion</td>
+        </tr>
+    </thead>
+
+    <tbody id="PurchaseDetailsTable"></tbody>
+
+</table>
+
+<!--<script src="~/Scripts/ProyectScripts/Purchase/PurchaseDetailsTable.js"></script>-->
+
+
+@section Scripts {
+
+
+    @Scripts.Render("~/Scripts/ProyectScripts/Purchase/PurchaseDetailsTable.js")
+
+}

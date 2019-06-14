@@ -29,6 +29,8 @@ namespace MasterDetails.Models
 
         public DbSet<PurchaseDetails> PurchaseDetails { get; set; }
 
+        public DbSet<TipoProducto> TiposProducto { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
