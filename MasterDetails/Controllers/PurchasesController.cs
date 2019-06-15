@@ -25,11 +25,16 @@ namespace MasterDetails.Controllers
         public ActionResult Create()
 
         {
+            GetTipoProductos();
+
+            return View();
+        }
+
+        private void GetTipoProductos()
+        {
             var datos = _db.TiposProducto.ToList();
 
             @ViewData["TiposProducto"] = datos;
-
-            return View();
         }
 
         public ActionResult Edit(int? id)
@@ -108,9 +113,12 @@ namespace MasterDetails.Controllers
 
                 if (isPurchaseAdded)
                 {
-                    return View(purchase);
+                    //return View(purchase);
+                    return RedirectToAction(nameof(Index));
                 }
             }
+
+            GetTipoProductos();
 
             return View();
         }

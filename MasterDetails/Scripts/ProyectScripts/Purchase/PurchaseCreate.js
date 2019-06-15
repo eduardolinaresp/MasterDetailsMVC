@@ -20,10 +20,7 @@ function createdRowPurchase() {
     var SerialCell = "<td>" + (++sl) + "</td>";
 
     var ItemNameCell = "<td><input type='hidden' id='ItemName" + index + "' name='PurchaseDetailses[" + index + "].Name' value='" + selectedItem.ItemName + "'/>" + selectedItem.ItemName + " </td>";
-
-
-    console.log(selectedItem.ItemName);
-
+    
     var ItemQtyCell = "<td><input type='hidden' id='ItemQty" + index + "' name='PurchaseDetailses[" + index + "].Qty' value='" + selectedItem.ItemQty + "'/>" + selectedItem.ItemQty + " </td>";
 
     var ItemPriceCell = "<td><input type='hidden' id='ItemPrice" + index + "' name='PurchaseDetailses[" + index + "].Price' value='" + selectedItem.ItemPrice + "'/>" + selectedItem.ItemPrice + " </td>";
@@ -36,7 +33,7 @@ function createdRowPurchase() {
 
     $("#PurchaseDetailsTable").append(createdNewRow);
 
-    $("#ItemName").val('');
+    //$("#ItemName").val('');
     $("#ItemQty").val('');
     $("#ItemPrice").val('');
 
@@ -44,6 +41,9 @@ function createdRowPurchase() {
 }
 
 function getSeleltedItem() {
+
+    var TipoProductoId = $("#myselect").val();
+    var TipoProductoName = $("#myselect option:selected").text();
 
     var itemName = $("#ItemName").val();
     var itemQty = $("#ItemQty").val();
@@ -54,6 +54,8 @@ function getSeleltedItem() {
 
     var item = {
 
+        "ItemName": TipoProductoId,
+        "ItemName": TipoProductoName,
         "ItemName": itemName,
         "ItemQty": itemQty,
         "ItemPrice": itemPrice
