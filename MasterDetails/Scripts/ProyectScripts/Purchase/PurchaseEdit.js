@@ -70,8 +70,35 @@ function getSeleltedItem() {
 
 
 function buscar(page) {
-    
-    window.location.href ="www.google.com"
+
+    var encode_json = "{'id':'" + $("#txtOrderId").val() + "'}";
+
+    var resp;
+    var sl = 0;
+    $.ajax({
+        type: "POST",
+        url: "../GetDetalleRows",
+        data: encode_json,
+        async: true,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+
+        success: function (data) {
+            var row = "";
+            $.each(data, function (index, item) {
+                row += "<tr><td style ='display:none'><input type='hidden' id='ItemId" + item.id + "'name='PurchaseDetailses.Id' value='" + item.id + "'  /></td><td>" + (++sl) + "</td><td>" + item.Name + "</td><td>" + item.Qty + "</td><td>" + item.Price + "</td></tr>";
+
+                console.log(row);
+            });
+            $("#PurchaseDetailsTable").html(row);
+        },
+        error: function (result) {
+            alert("Error");
+        }
+
+    });
+
+   // window.location.href = "../GetDetalleRows?id=5";
 
   
 };

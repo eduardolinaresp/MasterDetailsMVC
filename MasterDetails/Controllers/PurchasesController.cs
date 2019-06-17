@@ -58,7 +58,7 @@ namespace MasterDetails.Controllers
 
             var model = (from head in _db.Purchase
                          join det in _db.PurchaseDetails
-                           on head.Id equals det.Id
+                           on head.Id equals det.PurchaseId
                          where head.Id == purchase.Id
                          select new PurchaseDetailsViewModel
                          {
@@ -79,25 +79,49 @@ namespace MasterDetails.Controllers
             }
 
 
-          var   x = "--------";
-
-            //PurchaseDetailsViewModel  model = (from head in _db.Purchase
-            //                                       join det in _db.PurchaseDetails
-            //                                         on head.Id equals det.Id
-            //                                       where head.Id == purchase.Id
-            //                                       select new
-            //                                       {
-            //                                           Header = head,
-            //                                           Detail = det
-
-            //                                       });
-
             @ViewData["TiposProducto"] = datos;
 
             return View(nuevo);
 
         }
 
+        [HttpPost]
+        public ActionResult GetDetalleRows(int? id)
+        {
+            //Dictionary<string, string> respuesta = new Dictionary<string, string>();
+            //JavaScriptSerializer res = new JavaScriptSerializer();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var purchase = _db.Purchase.Find(id);
+
+            if (purchase == null)
+            {
+                return HttpNotFound();
+            }
+
+            var detalle = _db.PurchaseDetails
+                                  .Where(o => o.PurchaseId == purchase.Id)
+                                  .Select(x => new {
+                                      id = x.Id,
+                                      Name = x.Name,
+                                      Qty = x.Qty,
+                                      Price = x.Price
+
+
+                                  })
+                                  .ToList();
+
+
+            //return View();
+            //return Content(res.Serialize(respuesta));
+
+            return Json(detalle, JsonRequestBehavior.AllowGet);
+
+        }
 
 
         [HttpPost]
@@ -107,6 +131,8 @@ namespace MasterDetails.Controllers
             if (ModelState.IsValid && 
                 purchase.PurchaseDetailses != null && purchase.PurchaseDetailses.Count > 0)
             {
+                purchase.PurchaseDate = DateTime.Now;
+
                 _db.Purchase.Add(purchase);
 
                var  isPurchaseAdded = _db.SaveChanges() > 0;

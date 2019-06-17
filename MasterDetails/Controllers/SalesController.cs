@@ -78,6 +78,8 @@ namespace MasterDetails.Controllers
 
             OrderView _OrderView = new OrderView();
 
+            //_OrderView.Products.
+
             var OrderView = Session["OrderView"] as OrderView;
 
             if (OrderView == null)
