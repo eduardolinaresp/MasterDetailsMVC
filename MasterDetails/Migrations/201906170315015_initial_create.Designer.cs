@@ -7,13 +7,13 @@ namespace MasterDetails.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class tipoproducto : IMigrationMetadata
+    public sealed partial class initial_create : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(tipoproducto));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial_create));
         
         string IMigrationMetadata.Id
         {
-            get { return "201906130155270_tipoproducto"; }
+            get { return "201906170315015_initial_create"; }
         }
         
         string IMigrationMetadata.Source

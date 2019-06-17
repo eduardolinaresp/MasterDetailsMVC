@@ -27,8 +27,20 @@
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Purchase", "Index", "Purchases")</li>
                     <li>@Html.ActionLink("Tipos Producto", "Index", "TipoProductoes")</li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Procesos
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                            <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("OrderDetails", "Index", "OrderDetails")</li>
+                            <li>@Html.ActionLink("Customer", "Index", "Customers")</li>
+                            <li>@Html.ActionLink("NewOrder", "NewOrder", "Sales")</li>
+                        </ul>
 
-                 
+                    </li>                 
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
