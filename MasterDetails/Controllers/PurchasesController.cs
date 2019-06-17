@@ -1,6 +1,7 @@
 ﻿using MasterDetails.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -81,9 +82,42 @@ namespace MasterDetails.Controllers
 
             @ViewData["TiposProducto"] = datos;
 
-            return View(nuevo);
+            return View(purchase);
 
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "CustomerName,CustomerContactNo,PurchaseDetailses")] Purchase purchase)
+        {
+
+            //int idCustomer = int.Parse(Request["Header.Id"]);
+            string _CustomerName = (Request["CustomerName"]);
+            string _CustomerContactNo =(Request["CustomerContactNo"]);
+            var _detail = Request["PurchaseDetailses"];
+            //DateTime _PurchaseDate = DateTime.Parse(Request["Header.PurchaseDate"]);
+
+            Purchase lv_purchase = new Purchase()
+            {
+                Id = purchase.Id,
+                CustomerName = _CustomerName,
+                CustomerContactNo = _CustomerContactNo,
+                PurchaseDate = DateTime.Now
+
+
+            };
+
+            if (ModelState.IsValid)
+            {
+                purchase.PurchaseDate = DateTime.Now;
+                _db.Entry(purchase).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(purchase);
+        }
+
 
         [HttpPost]
         public ActionResult GetDetalleRows(int? id)

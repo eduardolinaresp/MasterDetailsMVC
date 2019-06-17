@@ -1,5 +1,5 @@
-﻿
-@model  MasterDetails.Models.PurchaseDetailsViewModel
+﻿@*@model  MasterDetails.Models.PurchaseDetailsViewModel*@
+@model  MasterDetails.Models.Purchase
 @using MasterDetails.Models;
 
 @{
@@ -29,16 +29,20 @@
                         <div class="col-md-6">
 
                             <div class="form-group row">
-                                @Html.LabelFor(m => m.Header.CustomerName, "Customer Name", new { @Class = "control-label col-md-4" })
+                                @*@Html.LabelFor(m => m.Header.CustomerName, "Customer Name", new { @Class = "control-label col-md-4" })*@
+                                @Html.LabelFor(m => m.CustomerName, "Customer Name", new { @Class = "control-label col-md-4" })
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Header.CustomerName, null, new { @class = "form-control" })
+                                    @*@Html.TextBoxFor(m => m.Header.CustomerName, null, new { @class = "form-control" })*@
+                                    @Html.TextBoxFor(m => m.CustomerName, null, new { @class = "form-control" })
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                @Html.LabelFor(m => m.Header.CustomerContactNo, "Contact No", new { @Class = "control-label col-md-4" })
+                                @*@Html.LabelFor(m => m.Header.CustomerContactNo, "Contact No", new { @Class = "control-label col-md-4" })*@
+                                @Html.LabelFor(m => m.CustomerContactNo, "Contact No", new { @Class = "control-label col-md-4" })
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Header.CustomerContactNo, null, new { @class = "form-control"  })
+                                    @*@Html.TextBoxFor(m => m.Header.CustomerContactNo, null, new { @class = "form-control" })*@
+                                    @Html.TextBoxFor(m => m.CustomerContactNo, null, new { @class = "form-control" })
                                 </div>
                             </div>
 
@@ -48,19 +52,23 @@
                         <div class="col-md-6">
 
                             <div class="form-group row">
-                               <input type="hidden" name="txtOrderId" id="txtOrderId" aria-describedby="basic-addon2" value="5">
+                                <input type="hidden" name="txtOrderId" id="txtOrderId" aria-describedby="basic-addon2" value="@Model.Id">
                             </div>
                             <div class="form-group row">
-                                @Html.LabelFor(m => m.Header.PurchaseDate, "PurchaseDate", new { @Class = "control-label col-md-4" })
+                                @*@Html.LabelFor(m => m.Header.PurchaseDate, "PurchaseDate", new { @Class = "control-label col-md-4" })*@
+                                @Html.LabelFor(m => m.PurchaseDate, "PurchaseDate", new { @Class = "control-label col-md-4" })
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Header.PurchaseDate, null, new { @class = "form-control", disabled = "disabled" })
+                                    @*@Html.TextBoxFor(m => m.Header.PurchaseDate, null, new { @class = "form-control", disabled = "disabled" })*@
+                                    @Html.TextBoxFor(m => m.PurchaseDate, null, new { @class = "form-control", disabled = "disabled" })
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                @Html.LabelFor(m => m.Header.Description, "Description", new { @Class = "control-label col-md-4" })
+                                @*@Html.LabelFor(m => m.Header.Description, "Description", new { @Class = "control-label col-md-4" })*@
+                                @Html.LabelFor(m => m.Description, "Description", new { @Class = "control-label col-md-4" })
                                 <div class="col-md-4">
-                                    @Html.TextAreaFor(m => m.Header.Description, new { @class = "form-control", row = 3 })
+                                    @*@Html.TextAreaFor(m => m.Header.Description, new { @class = "form-control", row = 3 })*@
+                                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", row = 3 })
                                 </div>
                             </div>
 
@@ -88,30 +96,30 @@
                 <div class="panel-body">
 
                     <div class="form-group row">
-                          @Html.Label("ItemName", "Item Name", new { @Class = "control-label col-md-4" })
-                          <div class="col-md-4">
+                        @Html.Label("ItemName", "Item Name", new { @Class = "control-label col-md-4" })
+                        <div class="col-md-4">
                             @Html.TextBox("ItemName", null, new { @class = "form-control" })
-                          </div>
                         </div>
+                    </div>
                     <div class="form-group row">
                         @Html.Label("ItemQty", "Seleccione", new { @Class = "control-label col-md-4" })
 
                         <div class="col-md-4">
                             <select id="testSelect" class="form-control">
 
-                                    @foreach (var item in TipoProducto)
-                                    {
+                                @foreach (var item in TipoProducto)
+                                {
 
-                                        <option value="item.TipoProductoId.ToString()">@item.Name.ToString()</option>
+                                    <option value="item.TipoProductoId.ToString()">@item.Name.ToString()</option>
 
-                                        @*@Html.DropDownListFor(x => Model.SelectedRegionCode, new SelectList(Model.Regions, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "Region" })
+                                    @*@Html.DropDownListFor(x => Model.SelectedRegionCode, new SelectList(Model.Regions, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "Region" })
                                         @Html.ValidationMessageFor(x => x.SelectedRegionCode, "", new { @class = "text-danger" })*@
 
-                                    }
+                                }
 
                             </select>
 
-                          @*  @Html.DropDownListFor(x => Model.PurchaseDate, new SelectList(Model.Description, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })*@
+                            @*  @Html.DropDownListFor(x => Model.PurchaseDate, new SelectList(Model.Description, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })*@
                         </div>
                     </div>
 
@@ -178,11 +186,7 @@
                             </tr>
                         </thead>
 
-                        <tbody id="PurchaseDetailsTable">
-
-                         
-
-                        </tbody>
+                        <tbody id="PurchaseDetailsTable"></tbody>
 
                     </table>
 

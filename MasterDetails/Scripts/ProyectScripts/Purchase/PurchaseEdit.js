@@ -86,11 +86,13 @@ function buscar(page) {
         success: function (data) {
             var row = "";
             $.each(data, function (index, item) {
-                row += "<tr><td style ='display:none'><input type='hidden' id='ItemId" + item.id + "'name='PurchaseDetailses.Id' value='" + item.id + "'  /></td><td>" + (++sl) + "</td><td>" + item.Name + "</td><td>" + item.Qty + "</td><td>" + item.Price + "</td></tr>";
+                row += "<tr><td>" + (++sl) + "</td><td><input type='hidden' id='ItemName" + item.id + "' name='PurchaseDetailses[" + item.id + "].Name' value='" + item.Name + "'/>" + item.Name + "</td><td><input type='hidden' id='ItemName" + item.id + "' name='PurchaseDetailses[" + item.id + "].Qty' value='" + item.Qty + "'/>" + item.Qty + "</td><td><input type='hidden' id='ItemName" + item.id + "' name='PurchaseDetailses[" + item.id + "].Price' value='" + item.Price + "'/>" + item.Price + "</td></tr>";
 
                 console.log(row);
             });
-            $("#PurchaseDetailsTable").html(row);
+           // $("#PurchaseDetailsTable").html(row);
+            $("#PurchaseDetailsTable").append(row);
+            
         },
         error: function (result) {
             alert("Error");
@@ -98,6 +100,9 @@ function buscar(page) {
 
     });
 
+    //row += "<tr><td>" + (++sl) + "</td><td><input type='hidden' id='ItemName" + item.id + "' name='PurchaseDetailses[" + item.id + "].Name' value='" + item.Name + "'/>" + item.Name + "</td><td><input type='hidden' id='ItemName" + item.id + "' name='PurchaseDetailses[" + item.id + "].Qty' value='" + item.Qty + "'/>" + item.Qty + "</td><td><input type='hidden' id='ItemName" + item.id + "' name='PurchaseDetailses[" + item.id + "].Price' value='" + item.Price + "'/>" + item.Price + "</td></tr>";
+
+    //row += "<tr><td style ='display:none'><input type='hidden' id='ItemId" + item.id + "'name='PurchaseDetailses.Id' value='" + item.id + "'  /></td><td>" + (++sl) + "</td><td>" + item.Name + "</td><td>" + item.Qty + "</td><td>" + item.Price + "</td></tr>";
    // window.location.href = "../GetDetalleRows?id=5";
 
   
