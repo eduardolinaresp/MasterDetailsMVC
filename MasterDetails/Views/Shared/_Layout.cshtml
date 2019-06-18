@@ -40,7 +40,23 @@
                             <li>@Html.ActionLink("NewOrder", "NewOrder", "Sales")</li>
                         </ul>
 
-                    </li>                 
+
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Areas
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("Administracion", "Index", "Home", new { Area = "Administracion" }, new{})
+
+                            </li>
+                            
+                        </ul>
+
+
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

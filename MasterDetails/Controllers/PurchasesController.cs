@@ -96,18 +96,7 @@ namespace MasterDetails.Controllers
             string _CustomerName = (Request["CustomerName"]);
             string _CustomerContactNo =(Request["CustomerContactNo"]);
             var _detail = Request["PurchaseDetailses"];
-            //DateTime _PurchaseDate = DateTime.Parse(Request["Header.PurchaseDate"]);
-
-            Purchase lv_purchase = new Purchase()
-            {
-                Id = purchase.Id,
-                CustomerName = _CustomerName,
-                CustomerContactNo = _CustomerContactNo,
-                PurchaseDate = DateTime.Now
-
-
-            };
-
+          
             if (ModelState.IsValid)
             {
                 purchase.PurchaseDate = DateTime.Now;

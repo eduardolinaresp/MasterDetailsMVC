@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using MasterDetails.Areas.Administracion.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -40,7 +41,10 @@ namespace MasterDetails.Models
 
         public DbSet<Product> Products { get; set; }
 
-
+        public virtual DbSet<Category> Categories1 { get; set; }
+        public virtual DbSet<OrderDetail1> OrderDetails1 { get; set; }
+        public virtual DbSet<OrderMaster> OrderMasters { get; set; }
+        public virtual DbSet<Product1> Products1 { get; set; }
 
         public static ApplicationDbContext Create()
         {

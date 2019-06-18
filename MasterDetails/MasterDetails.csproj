@@ -170,6 +170,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
+    <Compile Include="Areas\Administracion\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administracion\Models\Category.cs" />
+    <Compile Include="Areas\Administracion\Models\OrderDetail1.cs" />
+    <Compile Include="Areas\Administracion\Models\OrderMaster.cs" />
+    <Compile Include="Areas\Administracion\Models\Product1.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -186,6 +191,10 @@
     <Compile Include="Migrations\201906170315015_initial_create.cs" />
     <Compile Include="Migrations\201906170315015_initial_create.Designer.cs">
       <DependentUpon>201906170315015_initial_create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906180304369_AddAreaModel.cs" />
+    <Compile Include="Migrations\201906180304369_AddAreaModel.Designer.cs">
+      <DependentUpon>201906180304369_AddAreaModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -222,6 +231,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administracion\Views\web.config" />
+    <Content Include="Areas\Administracion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administracion\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administracion\Views\Home\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -311,9 +323,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administracion\Controllers\" />
-    <Folder Include="Areas\Administracion\Models\" />
-    <Folder Include="Areas\Administracion\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -331,6 +340,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906170315015_initial_create.resx">
       <DependentUpon>201906170315015_initial_create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906180304369_AddAreaModel.resx">
+      <DependentUpon>201906180304369_AddAreaModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
