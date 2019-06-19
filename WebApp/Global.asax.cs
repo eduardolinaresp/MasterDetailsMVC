@@ -16,6 +16,7 @@ namespace WebApp
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //var path = BundleTable.VirtualPathProvider("../s");
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ContextInit.Init();
         }

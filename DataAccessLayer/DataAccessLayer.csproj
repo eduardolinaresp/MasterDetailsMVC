@@ -49,9 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DataContext.cs" />
     <Compile Include="Providers\InvoicesRepo.cs" />
+    <Compile Include="Providers\ItemsRepo_ADO_NET_Data_Services.cs" />
     <Compile Include="Providers\ItemsRepo.cs" />
   </ItemGroup>
   <ItemGroup>
