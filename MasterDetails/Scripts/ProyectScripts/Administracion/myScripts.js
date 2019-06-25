@@ -5,7 +5,8 @@ function LoadCategory(element) {
         //ajax function for fetch data
         $.ajax({
             type: "GET",
-            url: '/home/getProductCategories',
+           // url: '/home/getProductCategories',
+            url: 'home/getProductCategories',
             success: function (data) {
                 Categories = data;
                 //render catagory

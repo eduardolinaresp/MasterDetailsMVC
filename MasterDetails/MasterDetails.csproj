@@ -170,7 +170,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
+    <Compile Include="Areas\Administracion\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administracion\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administracion\Controllers\Product1Controller.cs" />
     <Compile Include="Areas\Administracion\Models\Category.cs" />
     <Compile Include="Areas\Administracion\Models\OrderDetail1.cs" />
     <Compile Include="Areas\Administracion\Models\OrderMaster.cs" />
@@ -235,6 +237,16 @@
     <Content Include="Areas\Administracion\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administracion\Views\Home\Index.cshtml" />
     <Content Include="libman.json" />
+    <Content Include="Areas\Administracion\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Administracion\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Administracion\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Administracion\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Administracion\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Product1\Create.cshtml" />
+    <Content Include="Areas\Administracion\Views\Product1\Delete.cshtml" />
+    <Content Include="Areas\Administracion\Views\Product1\Details.cshtml" />
+    <Content Include="Areas\Administracion\Views\Product1\Edit.cshtml" />
+    <Content Include="Areas\Administracion\Views\Product1\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
