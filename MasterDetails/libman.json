@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery-ui-timepicker-addon@1.6.3",
+      "destination": "Scripts/jquery-ui-timepicker-addon/"
+    }
+  ]
+}

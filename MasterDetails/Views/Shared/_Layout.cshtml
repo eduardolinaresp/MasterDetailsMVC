@@ -24,12 +24,31 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Purchase", "Index", "Purchases")</li>
-                    <li>@Html.ActionLink("Tipos Producto", "Index", "TipoProductoes")</li>
+                    @*<li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
+                
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Procesos
+                            Datos Maestros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Tipos Producto", "Index", "TipoProductoes")</li>
+                        </ul>
+
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Proceso Compra
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Purchase", "Index", "Purchases")</li>
+                        </ul>
+
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Procesos Venta
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -49,10 +68,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                @Html.ActionLink("Administracion", "Index", "Home", new { Area = "Administracion" }, new{})
+                                @Html.ActionLink("Administracion", "Index", "Home", new { Area = "Administracion" }, new { })
 
                             </li>
-                            
+
                         </ul>
 
 
